@@ -1,0 +1,27 @@
+#include <iostream>
+#include<cmath>
+
+int main(){
+    float a = 0.1;
+    int over = 1;
+    float dx = 0.05;
+    float eps = 0.0001;
+    std::cout << "x" << " " << "|" << " " << "s" << std::endl;
+    for(float x = a; x <= over; x += dx){
+        int i = 1;
+        float temp = 1;
+        float s = 0;
+        float ans_x;
+        while(std::abs(temp) >= eps){
+            temp = std::pow(-1,i + 1) * std::pow(x,2 * i + 1) / (4 * std::pow(i, 2) - 1);
+            s += temp;
+            i++;
+            ans_x = x;
+        }
+       std::cout << ans_x << " " << "|" << " " << s << std::endl;
+
+    }
+
+
+    return 0;
+}
